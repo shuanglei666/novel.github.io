@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>纯CSS翻页效果的loading加载动画</title>
+	<link type="text/css" rel="stylesheet" href="css/style.css">
+</head>
+<style>
+	body {
+		height: 100vh;
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-pack: center;
+		-ms-flex-pack: center;
+		justify-content: center;
+		-webkit-box-align: center;
+		-ms-flex-align: center;
+		align-items: center;
+	}
+
+	.book {
+		box-sizing: border-box;
+		height: 100px;
+		width: 151px;
+		background: #fff;
+		border: 5px solid #00a3b6;
+		border-radius: 4px;
+		-webkit-perspective: 300px;
+		perspective: 300px;
+		position: relative;
+	}
+
+	.book__page {
+		position: absolute;
+		height: 100%;
+		width: calc(50% - 3px);
+		background: #fff;
+		top: -5px;
+		right: -5px;
+		border: inherit;
+		border-radius: inherit;
+		-webkit-transform-style: preserve-3d;
+		transform-style: preserve-3d;
+		-webkit-transform-origin: 0 0 0;
+		transform-origin: 0 0 0;
+		-webkit-animation: page-flip 5s linear infinite;
+		animation: page-flip 5s linear infinite;
+	}
+
+	/* .book__page__fill {
+		background: #00a3b6;
+		width: 80%;
+		border: inherit;
+		margin: 0 auto;
+		border-width: 3px;
+		border-radius: inherit;
+		box-sizing: border-box;
+		margin-top: 10px;
+		-webkit-transform-origin: left;
+		transform-origin: left;
+		-webkit-transform: scaleX(0);
+		transform: scaleX(0);
+		-webkit-animation: fill-1 5s linear forwards infinite;
+		animation: fill-1 5s linear forwards infinite;
+		-webkit-backface-visibility: hidden;
+		backface-visibility: hidden ;
+		
+	} */
+
+	.book__page__fill {
+		background: #00a3b6;
+		width: 80%;
+		height: 90%;
+		border: inherit;
+		margin: 0 auto;
+		border-width: 3px;
+		border-radius: inherit;
+		box-sizing: border-box;
+		margin-top: 5px;
+		-webkit-transform-origin: left;
+		transform-origin: left;
+		-webkit-transform: scaleX(0);
+		transform: scaleX(0);
+		-webkit-animation: fill-1 5s linear forwards infinite;
+		animation: fill-1 5s linear forwards infinite;
+		-webkit-backface-visibility: hidden;
+		backface-visibility: hidden;
+	}
+
+	.book__page__fill:nth-child(2) {
+		-webkit-animation-name: fill-2;
+		animation-name: fill-2;
+	}
+
+	.book__page__fill:nth-child(3) {
+		-webkit-animation-name: fill-3;
+		animation-name: fill-3;
+	}
+
+	.book__page__fill:nth-child(4) {
+		-webkit-animation-name: fill-4;
+		animation-name: fill-4;
+	}
+
+	.book__page__fill:nth-child(5) {
+		-webkit-animation-name: fill-5;
+		animation-name: fill-5;
+	}
+
+	@-webkit-keyframes page-flip {
+		50% {
+			-webkit-transform: rotateY(0) translateX(0);
+			transform: rotateY(0) translateX(0);
+		}
+
+		80%,
+		100% {
+			-webkit-transform: rotateY(-180deg) translateX(-5px);
+			transform: rotateY(-180deg) translateX(-5px);
+		}
+	}
+
+	@keyframes page-flip {
+		50% {
+			-webkit-transform: rotateY(0) translateX(0);
+			transform: rotateY(0) translateX(0);
+		}
+
+		80%,
+		100% {
+			-webkit-transform: rotateY(-180deg) translateX(-5px);
+			transform: rotateY(-180deg) translateX(-5px);
+		}
+	}
+
+	@-webkit-keyframes fill-1 {
+
+		10%,
+		100% {
+			-webkit-transform: scaleX(1);
+			transform: scaleX(1);
+		}
+	}
+
+	@keyframes fill-1 {
+
+		10%,
+		100% {
+			-webkit-transform: scaleX(1);
+			transform: scaleX(1);
+		}
+	}
+
+	@-webkit-keyframes fill-2 {
+		10% {
+			-webkit-transform: scaleX(0);
+			transform: scaleX(0);
+		}
+
+		20%,
+		100% {
+			-webkit-transform: scaleX(1);
+			transform: scaleX(1);
+		}
+	}
+
+	@keyframes fill-2 {
+		10% {
+			-webkit-transform: scaleX(0);
+			transform: scaleX(0);
+		}
+
+		20%,
+		100% {
+			-webkit-transform: scaleX(1);
+			transform: scaleX(1);
+		}
+	}
+
+	@-webkit-keyframes fill-3 {
+		20% {
+			-webkit-transform: scaleX(0);
+			transform: scaleX(0);
+		}
+
+		30%,
+		100% {
+			-webkit-transform: scaleX(1);
+			transform: scaleX(1);
+		}
+	}
+
+	@keyframes fill-3 {
+		20% {
+			-webkit-transform: scaleX(0);
+			transform: scaleX(0);
+		}
+
+		30%,
+		100% {
+			-webkit-transform: scaleX(1);
+			transform: scaleX(1);
+		}
+	}
+
+	@-webkit-keyframes fill-4 {
+		30% {
+			-webkit-transform: scaleX(0);
+			transform: scaleX(0);
+		}
+
+		40%,
+		100% {
+			-webkit-transform: scaleX(1);
+			transform: scaleX(1);
+		}
+	}
+
+	@keyframes fill-4 {
+		30% {
+			-webkit-transform: scaleX(0);
+			transform: scaleX(0);
+		}
+
+		40%,
+		100% {
+			-webkit-transform: scaleX(1);
+			transform: scaleX(1);
+		}
+	}
+
+	@-webkit-keyframes fill-5 {
+		40% {
+			-webkit-transform: scaleX(0);
+			transform: scaleX(0);
+		}
+
+		50%,
+		100% {
+			-webkit-transform: scaleX(1);
+			transform: scaleX(1);
+		}
+	}
+
+	@keyframes fill-5 {
+		40% {
+			-webkit-transform: scaleX(0);
+			transform: scaleX(0);
+		}
+
+		50%,
+		100% {
+			-webkit-transform: scaleX(1);
+			transform: scaleX(1);
+		}
+	}
+
+	.book__page__fill img {
+		width: 100%;
+		height: 100%;
+	}
+</style>
+
+<body>
+	<div class="book">
+		<div class="book__page">
+			<!-- 单页加载条纹 -->
+			<!-- <div class="book__page__fill"></div>
+			<div class="book__page__fill"></div>
+			<div class="book__page__fill"></div>
+			<div class="book__page__fill"></div>
+			<div class="book__page__fill"></div> -->
+
+			<div class="book__page__fill">
+				<img src="https://img2.flbook.com.cn/cover-1653963695451-239459913418824.jpg?imageView2/2/w/220" alt="">
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>纯CSS翻页的loading加载动画</title>
+	<link type="text/css" rel="stylesheet" href="css/style.css">
+</head>
+<style>
+	* {
+		box-sizing: border-box;
+	}
+
+	body {
+		background: #e18763;
+	}
+
+	#staticElements {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 250px;
+		width: 400px;
+	}
+
+	h1 {
+		font-family: 'Microsoft YaHei', 'Lantinghei SC', 'Open Sans', Arial, 'Hiragino Sans GB', 'STHeiti', 'WenQuanYi Micro Hei', 'SimSun', sans-serif;
+		font-weight: 200;
+		font-size: 40px;
+		line-height: 150px;
+		position: absolute;
+		width: 100%;
+		height: 150px;
+		text-align: center;
+		top: 0;
+		color: white;
+		text-shadow: 2px 2px 0px rgba(0, 0, 0, .2);
+	}
+
+	#book {
+		height: 250px;
+		width: 400px;
+		margin: 150px auto;
+		position: relative;
+		transform: scale(1);
+	}
+
+	#bookCover {
+		height: 270px;
+		width: 426px;
+		background: #633320;
+		position: absolute;
+		top: 22px;
+		left: -13px;
+		/*transform*/
+		-webkit-transform: perspective(800px) rotateX(45deg);
+		-moz-transform: perspective(800px) rotateX(45deg);
+		-ms-transform: perspective(800px) rotateX(45deg);
+		-o-transform: perspective(800px) rotateX(45deg);
+		transform: perspective(800px) rotateX(45deg);
+		z-index: 0;
+		/*border-radius  */
+		-webkit-border-radius: 10px;
+		-moz-border-radius: 10px;
+		border-radius: 10px;
+	}
+
+	#flippingPages {
+		height: 250px;
+		width: 400px;
+		background: white;
+		position: relative;
+		z-index: 2;
+		font-family: 'Microsoft YaHei', 'Lantinghei SC', 'Open Sans', Arial, 'Hiragino Sans GB', 'STHeiti', 'WenQuanYi Micro Hei', 'SimSun', sans-serif;
+		font-weight: 200;
+		line-height: 220px;
+		color: #9b8177;
+		font-size: 50px;
+		overflow: visible;
+		padding-left: 100px;
+		/*transform*/
+		-webkit-transform: perspective(800px) rotateX(45deg);
+		-moz-transform: perspective(800px) rotateX(45deg);
+		-ms-transform: perspective(800px) rotateX(45deg);
+		-o-transform: perspective(800px) rotateX(45deg);
+		transform: perspective(800px) rotateX(45deg);
+		/*transform-style*/
+		-webkit-transform-style: preserve-3d;
+		-moz-transform-style: preserve-3d;
+		-ms-transform-style: preserve-3d;
+		-o-transform-style: preserve-3d;
+		transform-style: preserve-3d;
+
+		/* background-image: url(https://img2.flbook.com.cn/cover-1653275419404-1794731972401106.jpg?imageView2/2/w/220);
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: 2.5em 4.125em, 100% 100%; */
+	}
+
+	#underPages {
+		height: 30px;
+		width: 446px;
+		position: absolute;
+		z-index: 2;
+		left: -23px;
+		bottom: -3px;
+		background: #f1f1f1;
+		/*transform*/
+		-webkit-transform: perspective(800px) rotateX(-20deg);
+		-moz-transform: perspective(800px) rotateX(-20deg);
+		-ms-transform: perspective(800px) rotateX(-20deg);
+		-o-transform: perspective(800px) rotateX(-20deg);
+		transform: perspective(800px) rotateX(-20deg);
+	}
+
+	#underPages:before {
+		content: '';
+		display: block;
+		position: absolute;
+		left: 50%;
+		bottom: 0;
+		margin-left: -33px;
+		height: 0;
+		width: 0;
+		border-left: 34px solid transparent;
+		border-right: 34px solid transparent;
+		border-bottom: 20px solid #2c1106;
+	}
+
+	#binding {
+		width: 80px;
+		height: 60px;
+		background: #2c1106;
+		/*border-radius*/
+		-webkit-border-radius: 100%;
+		-moz-border-radius: 100%;
+		border-radius: 100%;
+		border: 5px solid #633320;
+		position: absolute;
+		left: 50%;
+		bottom: -25px;
+		margin-left: -40px;
+		z-index: 1;
+	}
+
+	#FrontPage {
+		position: absolute;
+		width: 200px;
+		height: 250px;
+		line-height: 220px;
+		font-size: 50px;
+		text-indent: -100px;
+		background: white;
+		top: 0;
+		left: 200px;
+		/*transform-origin*/
+		-webkit-transform-origin: left center;
+		-moz-transform-origin: left center;
+		-ms-transform-origin: left center;
+		-o-transform-origin: left center;
+		transform-origin: left center;
+		overflow: hidden;
+		/*backface-visibility*/
+		-webkit-backface-visibility: hidden;
+		-moz-backface-visibility: hidden;
+		-ms-backface-visibility: hidden;
+		-o-backface-visibility: hidden;
+		backface-visibility: hidden;
+		/*animation*/
+		-webkit-animation: pageFlipFront 2s ease-in infinite;
+		-moz-animation: pageFlipFront 2s ease-in infinite;
+		-ms-animation: pageFlipFront 2s ease-in infinite;
+		-o-animation: pageFlipFront 2s ease-in infinite;
+		animation: pageFlipFront 2s ease-in infinite;
+	}
+
+	.frontPageImg {
+		width: 100%;
+		height: 100%;
+		background-image: url(https://img2.flbook.com.cn/cover-1653275419404-1794731972401106.jpg?imageView2/2/w/220);
+		background-repeat: no-repeat;
+		background-position: center;
+		/* background-size: 2.5em 4.125em, 100% 100%; */
+		background-size: 100% 100%;
+	}
+
+	#BackPage {
+		position: absolute;
+		width: 200px;
+		height: 250px;
+		line-height: 220px;
+		font-size: 50px;
+		/* padding-left: 100px; */
+		background: white;
+		top: 0;
+		left: 0;
+		/*transform-origin*/
+		-webkit-transform-origin: right center;
+		-moz-transform-origin: right center;
+		-ms-transform-origin: right center;
+		-o-transform-origin: right center;
+		transform-origin: right center;
+		overflow: hidden;
+		/*animation*/
+		-webkit-animation: pageFlipBack 2s ease-out infinite;
+		-moz-animation: pageFlipBack 2s ease-out infinite;
+		-ms-animation: pageFlipBack 2s ease-out infinite;
+		-o-animation: pageFlipBack 2s ease-out infinite;
+		animation: pageFlipBack 2s ease-out infinite;
+	}
+
+	.backPageImg {
+		width: 100%;
+		height: 100%;
+		background-image: url(https://img2.flbook.com.cn/cover-1653450004706-8646305880730463.jpg?imageView2/2/w/220);
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: 100% 100%;
+	}
+
+	@-webkit-keyframes pageFlipFront {
+		0% {
+			-webkit-transform: perspective(5000px) rotateY(0deg);
+			background: #ffffff;
+		}
+
+		50% {
+			-webkit-transform: perspective(5000px) rotateY(-90deg);
+			background: #f1f1f1;
+		}
+
+		100% {
+			-webkit-transform: perspective(5000px) rotateY(-90deg);
+		}
+	}
+
+	@-webkit-keyframes pageFlipBack {
+		0% {
+			-webkit-transform: perspective(5000px) rotateY(90deg);
+		}
+
+		50% {
+			-webkit-transform: perspective(5000px) rotateY(90deg);
+			background: #f1f1f1;
+		}
+
+		100% {
+			-webkit-transform: perspective(5000px) rotateY(0deg);
+			background: #ffffff;
+		}
+	}
+
+	@-moz-keyframes pageFlipFront {
+		0% {
+			-moz-transform: perspective(5000px) rotateY(0deg);
+			background: #ffffff;
+		}
+
+		50% {
+			-moz-transform: perspective(5000px) rotateY(-90deg);
+			background: #f1f1f1;
+		}
+
+		100% {
+			-moz-transform: perspective(5000px) rotateY(-90deg);
+		}
+	}
+
+	@-moz-keyframes pageFlipBack {
+		0% {
+			-moz-transform: perspective(5000px) rotateY(90deg);
+		}
+
+		50% {
+			-moz-transform: perspective(5000px) rotateY(90deg);
+			background: #f1f1f1;
+		}
+
+		100% {
+			-moz-transform: perspective(5000px) rotateY(0deg);
+			background: #ffffff;
+		}
+	}
+
+	@-o-keyframes pageFlipFront {
+		0% {
+			-o-transform: perspective(5000px) rotateY(0deg);
+			background: #ffffff;
+		}
+
+		50% {
+			-o-transform: perspective(5000px) rotateY(-90deg);
+			background: #f1f1f1;
+		}
+
+		100% {
+			-o-transform: perspective(5000px) rotateY(-90deg);
+		}
+	}
+
+	@-o-keyframes pageFlipBack {
+		0% {
+			-o-transform: perspective(5000px) rotateY(90deg);
+		}
+
+		50% {
+			-o-transform: perspective(5000px) rotateY(90deg);
+			background: #f1f1f1;
+		}
+
+		100% {
+			-o-transform: perspective(5000px) rotateY(0deg);
+			background: #ffffff;
+		}
+	}
+
+	@keyframes pageFlipFront {
+		0% {
+			transform: perspective(5000px) rotateY(0deg);
+			background: #ffffff;
+		}
+
+		50% {
+			transform: perspective(5000px) rotateY(-90deg);
+			background: #f1f1f1;
+		}
+
+		100% {
+			transform: perspective(5000px) rotateY(-90deg);
+		}
+	}
+
+	@keyframes pageFlipBack {
+		0% {
+			transform: perspective(5000px) rotateY(90deg);
+		}
+
+		50% {
+			transform: perspective(5000px) rotateY(90deg);
+			background: #f1f1f1;
+		}
+
+		100% {
+			transform: perspective(5000px) rotateY(0deg);
+			background: #ffffff;
+		}
+	}
+</style>
+
+<body>
+	<!-- <h1>纯CSS翻页的loading加载动画</h1>
+	<div id="book">
+		<div id="flippingPages">
+			加载中...
+			<div id="FrontPage">加载中...1</div>
+			<div id="BackPage">加载中...2</div>
+		</div>
+		<div id="staticElements">
+			<div id="bookCover">1</div>
+			<div id="binding">2</div>
+			<div id="underPages">3</div>
+		</div>
+	</div> -->
+	<!-- <h1>纯CSS翻页的loading加载动画</h1> -->
+	<div id="book">
+		<div id="flippingPages">
+			<!-- 加载中... -->
+			<div id="FrontPage">
+				<div class="frontPageImg"></div>
+			</div>
+			<div id="BackPage">
+				<div class="backPageImg"></div>
+			</div>
+		</div>
+		<div id="staticElements">
+			<div id="bookCover"></div>
+			<div id="binding"></div>
+			<div id="underPages"></div>
+		</div>
+	</div>
+</body>
+
+</html>

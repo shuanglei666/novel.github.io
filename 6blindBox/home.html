@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title></title>
+</head>
+<style>
+  .content {
+    width: 1500px;
+    margin: 100px auto;
+    /* pointer-events: none; */
+  }
+
+  #video {
+    z-index: -999;
+    cursor: pointer;
+  }
+
+  /* 鞋子样式 */
+  .hide {
+    opacity: 0;
+    width: 200px;
+    height: 200px;
+    /* border: 1px solid red; */
+    margin: 0 100px;
+    z-index: 999;
+    position: relative;
+    left: 600px;
+    bottom: 300px;
+    /* display: none; */
+  }
+
+  .hide img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .box {
+    opacity: 1;
+    width: 200px;
+    height: 200px;
+    /* border: 1px solid red; */
+    margin: 0 100px;
+    position: relative;
+    left: 600px;
+    bottom: 370px;
+    z-index: 999;
+    display: none;
+  }
+
+  .box img {
+    width: 0px;
+    height: 0px;
+    margin: 100px auto;
+    /* animation: anim 10s ease 1s 1; */
+    animation: anim 9s ease 2.5s;
+    /* animation: anim 9s ease-in-out 2s; */
+  }
+
+  /* keyfram定义一个动画 */
+  @keyframes anim {
+    0% {
+      width: 100px;
+      height: 100px;
+      transform: scale(0);
+      /* opacity: 0; */
+    }
+
+    20% {
+      width: 140px;
+      height: 140px;
+      transform: scale(2);
+      opacity: 1;
+    }
+
+    40% {
+      width: 140px;
+      height: 140px;
+      transform: scale(2);
+      opacity: 1;
+    }
+
+    60% {
+      width: 140px;
+      height: 140px;
+      opacity: 0;
+    }
+
+
+    100% {
+      width: 100px;
+      height: 100px;
+      transform: scale(0);
+      opacity: 0;
+    }
+  }
+
+  /* -animation-play-state 移入告诉系统当前动画是否需要暂停
+    running: 执行动画 ​
+    paused: 暂停动画 */
+  .box:hover {
+    /* animation-play-state: paused; */
+    animation-play-state: running;
+  }
+
+  /* from to 等于 0%到100% */
+  @keyframes fromAnim {
+    from {
+      transform: scale(0);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
+</style>
+
+<body>
+  <div id="app">
+    <div class="content" @click="get">
+      <video playsinline id="video" poster="" width="100%" height="500" @click="play" ref="video">
+        <source src="https://webflow.pro/dev/box.mp4" type="video/mp4">
+      </video>
+
+      <!-- 鞋子 -->
+      <!-- <div :class="isShow? 'box':'hide'" ref="reference"> -->
+      <div class="box" ref="reference">
+        <img src="https://uploads-ssl.webflow.com/624181072db315237608dddf/626256a7404b8d60c3b52f17_k4.png" alt="">
+      </div>
+      <!-- <button @click="get">点击</button> -->
+    </div>
+  </div>
+
+</body>
+<script src="./js/vue.js"></script>
+<script>
+  var app = new Vue({
+    el: '#app',
+    data: {
+      isShow: false
+    },
+    mounted() {},
+    methods: {
+      play() {
+        // https://blog.csdn.net/weixin_46880303/article/details/124364058?ops_request_misc=&request_id=&biz_id=102&utm_term=video%E5%89%8D%E7%AB%AF%E5%8F%AA%E8%A6%81%E6%92%AD%E6%94%BE%E4%BA%8B%E4%BB%B6&utm_medium=distribute.pc_search_result.none-task-blog-2~blog~sobaiduweb~default-2-124364058.nonecase&spm=1018.2226.3001.4450
+        console.log(111);
+        var elevideo = this.$refs.video
+        // elevideo.addEventListener('play', function () { //播放开始执行的函数 
+        //   console.log("开始播放");
+        // });
+        elevideo.play();
+        // this.isShow = !this.isShow
+      },
+      get() {
+        console.log(222);
+        this.$refs.reference.style.display = 'block';
+
+        setTimeout(() => {
+          this.$refs.reference.style.display = 'none';
+        }, 9000)
+      }
+    },
+    watch: {}
+  })
+</script>
+
+</html>

@@ -1,0 +1,133 @@
+@media (max-width: 1365px) {
+  .max .box {
+    max-width: 760px;
+  }
+
+  /* 书籍宽度适配 书籍开始*/
+  /* 最初 width: 895px;
+	height: 680px; */
+  /* 背景高都设置 */
+  .content_text {
+    width: 100% !important;
+    height: 500px !important;
+    background-image: url(https://www.html5tricks.com/demo/css3-page-flip/pagebg.jpg);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+  }
+
+  /* 容器高度设置 */
+  .flipbook-viewport .flipbook {
+    width: 608px !important;
+    height: 500px !important;
+    /* transform: scale(0.6) !important; */
+  }
+
+  /* 书籍结尾 */
+
+
+  /* 文字等 */
+  .content .title {
+    margin-top: 100px !important;
+  }
+
+  .content .content_text .text1 {
+    font-size: 1rem !important;
+  }
+}
+
+@media (max-width: 1023px) {
+  .max .box {
+    /* max-width: 560px !important; */
+    max-width: 560px;
+  }
+
+  /* 书籍宽度适配*/
+  .content_text {
+    width: 100% !important;
+    height: 320px !important;
+    background-image: url(https://www.html5tricks.com/demo/css3-page-flip/pagebg.jpg);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+  }
+
+  .flipbook-viewport .flipbook {
+    width: 448px !important;
+    height: 320px !important;
+    /* transform: scale(1) !important; */
+  }
+
+  /* 文字等 */
+  .content .title {
+    margin-top: 100px !important;
+  }
+
+  .content .content_text .text1 {
+    font-size: 1.3rem !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .max .box {
+    max-width: 100%;
+  }
+
+  /* 书籍宽度适配*/
+  .content_text {
+    width: 100% !important;
+    height: 350px !important;
+    background-image: url(https://www.html5tricks.com/demo/css3-page-flip/pagebg.jpg);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+  }
+
+  .flipbook-viewport .flipbook {
+    width: 611px !important;
+    height: 350px !important;
+    /* transform: scale(1) !important; */
+  }
+
+  /* 文字等 */
+  .content .title {
+    margin-top: 50px !important;
+  }
+
+  .content .content_text .text1 {
+    font-size: 1.5rem !important;
+  }
+}
+
+@media (max-width: 575px) {
+
+  /* 书籍宽度适配*/
+  .content_text {
+    width: 100% !important;
+    height: 350px !important;
+    background-image: url(https://www.html5tricks.com/demo/css3-page-flip/pagebg.jpg);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+  }
+
+  .flipbook-viewport .flipbook {
+    width: 450px !important;
+    height: 350px !important;
+    /* transform: scale(1) !important; */
+  }
+}
+
+@media (max-width: 480px) {
+
+  /* 书籍宽度适配*/
+  .content_text {
+    width: 100% !important;
+    height: 350px !important;
+    background-image: url(https://www.html5tricks.com/demo/css3-page-flip/pagebg.jpg);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+  }
+
+  .flipbook-viewport .flipbook {
+    width: 381px !important;
+    height: 350px !important;
+    /* transform: scale(1) !important; */
+  }
+}

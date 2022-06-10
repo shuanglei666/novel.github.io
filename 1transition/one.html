@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>特效分割</title>
+  <link href="https://cdn.bootcdn.net/ajax/libs/minireset.css/0.0.2/minireset.min.css" rel="stylesheet">
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script> <!--  vue.js -->
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
+  <!--引入 element-ui 的样式，-->
+  <!-- <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script> -->
+
+  <!-- <link rel="stylesheet" href="css/swiper-bundle.min.css"> -->
+
+  <!-- <link href="https://cdn.bootcss.com/Swiper/4.5.1/css/swiper.min.css" rel="stylesheet">
+  <script src="https://cdn.bootcss.com/Swiper/4.5.1/js/swiper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue-awesome-swiper@3.1.3/dist/vue-awesome-swiper.min.js"></script> -->
+
+  <link rel="stylesheet" href="./css/index.css">
+  <style>
+    .content {
+      width: 100%;
+    }
+
+    .one {
+      width: 100%;
+      height: 200px;
+      background-color: bisque;
+    }
+
+    .one_box {
+      width: 60%;
+      margin: 0 auto;
+      flex-direction: row;
+      display: flex;
+      justify-content: space-around;
+    }
+
+    .one1 {
+      width: 200px;
+      height: 200px;
+      border: 1px solid red;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .one1 img {
+      width: 100px;
+    }
+
+    .span {
+      position: relative;
+      bottom: 50px;
+      text-align: center;
+    }
+
+    /* 关于我们 */
+    .two {
+      width: 100%;
+      height: 200px;
+      background: rgb(25, 26, 27);
+      margin-top: 50px;
+    }
+
+    .two_box {
+      width: 60%;
+      height: 100%;
+      margin: 0 auto;
+      flex-wrap: wrap;
+      flex-direction: row;
+      display: flex;
+      justify-content: space-around;
+    }
+
+    .two_lft {
+      width: 40%;
+      height: 100%;
+      border: 1px solid red;
+    }
+
+    .two_lft div {
+      padding: 0px 20px;
+      color: #fff;
+      margin-top: 10px;
+    }
+
+    .two_rgt {
+      width: 20%;
+      height: 260px;
+      border: 1px solid red;
+      background: rgb(25, 26, 27);
+    }
+
+    /* 轮播图 */
+    .el-carousel__item h3 {
+      color: #475669;
+      font-size: 14px;
+      opacity: 0.75;
+      line-height: 150px;
+      margin: 0;
+    }
+
+    .el-carousel__item:nth-child(2n) {
+      background-color: #99a9bf;
+    }
+
+    .el-carousel__item:nth-child(2n+1) {
+      background-color: #d3dce6;
+    }
+
+    .app-view-wrapper {
+      width: 30%;
+      height: 30%;
+    }
+
+    .wrapper-swiper-container {
+      height: 30%;
+      width: 30%;
+    }
+
+    /* 立即咨询 */
+
+    .three {
+      width: 100%;
+      height: 500px;
+      margin-top: 100px;
+      border: 1px solid red;
+      overflow: hidden;
+      background: #99a9bf;
+    }
+
+    .three_box {
+      width: 60%;
+      height: 100%;
+      margin: 0 auto;
+      flex-wrap: wrap;
+      flex-direction: row;
+      display: flex;
+      justify-content: space-around;
+    }
+
+    .three1 {
+      width: 200px;
+      height: 500px;
+      border: 1px solid red;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      /* background: #99a9bf; */
+    }
+
+    /* 2022-5-10 MFG */
+    .three1 .box {
+      width: 200px;
+      height: 500px;
+      position: absolute;
+      background-color: tomato;
+      left: 0;
+      top: 500px;
+      opacity: 0;
+      transition: all 1s;
+    }
+
+    .three1:hover .box {
+      top: 0;
+      opacity: 1;
+    }
+
+    .wk_fwxm_ico {
+      background: url('./img/fwxm_img1.png');
+      overflow: hidden;
+      margin: 0 auto;
+      background-repeat: no-repeat;
+      width: 110px;
+      height: 110px;
+      -webkit-border-radius: 110px;
+      -moz-border-radius: 110px;
+      border-radius: 110px;
+      -webkit-transition: all .3s;
+      -moz-transition: all .3s;
+      transition: all .3s;
+      -webkit-transition-delay: 400ms;
+      -moz-transition-delay: 400ms;
+      transition-delay: 400ms;
+    }
+
+    .three1:hover .wk_fwxm_ico {
+      background: url('./img/fwxm_img1.png') scroll 0px -110px;
+      background-repeat: no-repeat;
+      z-index: 999;
+    }
+
+    .three1_text {
+      z-index: 100;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app" class="content" v-cloak>
+    <div class="one">
+      <div class="one_box">
+        <!-- 一 -->
+        <div class="one1">
+          <div class="animated fadeInRight delay-1s">
+            <img src="../animation/img/fang.png" alt="">
+            <div class="span">
+              智能医疗
+            </div>
+          </div>
+          <div class="animated fadeInRight delay-1s" style=" text-align: center;">
+            安防技术由人工智能算法、高性能计算、运维等构成。其中视觉智能算法主要涉及人脸识别、车辆车型识。
+          </div>
+        </div>
+        <!-- 二 -->
+        <div class="one1">
+          <div class="animated fadeInRight delay-1s">
+            <img src="../animation/img/fang.png" alt="">
+            <div class="span">
+              智能医疗
+            </div>
+          </div>
+          <div class="animated fadeInRight delay-1s" style=" text-align: center;">
+            安防技术由人工智能算法、高性能计算、运维等构成。其中视觉智能算法主要涉及人脸识别、车辆车型识。
+          </div>
+        </div>
+        <!-- 三 -->
+        <div class="one1">
+          <div class="animated fadeInRight delay-1s">
+            <img src="../animation/img/fang.png" alt="">
+            <div class="span">
+              智能医疗
+            </div>
+          </div>
+          <div class="animated fadeInRight delay-1s" style=" text-align: center;">
+            安防技术由人工智能算法、高性能计算、运维等构成。其中视觉智能算法主要涉及人脸识别、车辆车型识。
+          </div>
+        </div>
+        <!-- 四 -->
+        <div class="one1">
+          <div class="animated fadeInRight delay-1s">
+            <img src="../animation/img/fang.png" alt="">
+            <div class="span">
+              智能医疗
+            </div>
+          </div>
+          <div class="animated fadeInRight delay-1s" style=" text-align: center;">
+            安防技术由人工智能算法、高性能计算、运维等构成。其中视觉智能算法主要涉及人脸识别、车辆车型识。
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 关于我们 -->
+    <div class="two">
+      <div class="two_box">
+        <div class="two_lft">
+          <div class="animated fadeInRight delay-1s">从事人工智能创新性研究，致力于将先进的人工智能技术与行业应用相结合，建设更加安全、健康、便利的世界。带着国际视野组建优秀的研发团队.
+          </div>
+          <div class="animated fadeInRight delay-1s">
+            我们不是为了把大公司或实验室的技术拿来快速套利，我们参与人工智能领域的基础性科学研究，致力于全面解决机器看、听、理解的根本问题，相信能在计算机技术领域作出突破性贡献。我们的技术已经服务于安防、金融、交通、医疗等多个行业。
+          </div>
+        </div>
+        <div class="two_rgt" class="animated fadeInRight delay-1s">
+          <div class="block">
+            <span class="demonstration">Click 指示器触发</span>
+            <el-carousel trigger="click" height="150px">
+              <el-carousel-item v-for="item in 2" :key="item">
+                <h3 class="small">{{ item }}</h3>
+              </el-carousel-item>
+            </el-carousel>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 立即咨询 -->
+    <div class="three">
+      <div class="three_box">
+        <!-- 一 -->
+        <div class="three1">
+          <div class="wk_fwxm_ico"></div>
+          <div class="three1_text">
+            <h1 style="margin-top: 20px;">高端网站设计制作</h1>
+            <h1 style="margin-top: 10px;">DESIGN CUSTOM</h1>
+            <h1 style="margin-top: 30px;">团队凭借多年的行业经验为企业量身定制，让您的企业在残酷的网络竞争中脱颖而出，立于不败之地。</h1>
+          </div>
+          <div class="box"></div>
+        </div>
+        <!-- 二 -->
+        <!-- <div class="three1">
+        </div> -->
+        <!-- 三 -->
+        <!-- <div class="three1"> -->
+      </div>
+      <!-- 四 -->
+      <!-- <div class="three1"> -->
+    </div>
+  </div>
+  </div>
+  </div>
+</body>
+<script>
+  new Vue({
+    el: '#app',
+    data: {
+      return: {
+      }
+    },
+    mounted() { },
+    methods: {},
+  })
+
+</script>
+
+</html>

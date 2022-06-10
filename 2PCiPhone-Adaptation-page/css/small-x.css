@@ -1,0 +1,80 @@
+/* body {
+    background: aquamarine;
+}
+.container {
+    width: 750px;
+    margin: 0 auto;
+} */
+
+/* .nav {
+    font-size: 2.5rem !important;
+}
+
+.box .nav {
+    display: none !important;
+} */
+
+/* .content .title {
+    margin-top: 50px !important;
+}
+
+.content .content_text .text1 {
+    font-size: 2.5rem !important;
+} */
+
+/* .popup {
+    display: none !important;
+}
+
+.bottomBar {
+    height: 70px !important;
+} */
+
+.col-sx-12 {
+    grid-column: span 12;
+}
+
+
+.col-sx-11 {
+    grid-column: span 11;
+}
+
+.col-sx-10 {
+    grid-column: span 10;
+}
+
+.col-sx-9 {
+    grid-column: span 9;
+}
+
+.col-sx-8 {
+    grid-column: span 8;
+}
+
+.col-sx-7 {
+    grid-column: span 7;
+}
+
+.col-sx-6 {
+    grid-column: span 6;
+}
+
+.col-sx-5 {
+    grid-column: span 5;
+}
+
+.col-sx-4 {
+    grid-column: span 4;
+}
+
+.col-sx-3 {
+    grid-column: span 3;
+}
+
+.col-sx-2 {
+    grid-column: span 2;
+}
+
+.col-sx-1 {
+    grid-column: span 1;
+}

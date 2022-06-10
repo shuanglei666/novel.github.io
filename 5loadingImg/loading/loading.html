@@ -1,0 +1,133 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title></title>
+  <!-- <meta name="viewport" content="user-scalable = no" /> -->
+  <script type="text/javascript" src="./js/jquery.min.1.7.js"></script>
+  <script type="text/javascript" src="./js/modernizr.2.5.3.min.js"></script>
+</head>
+<style>
+ /* .content_text {
+      width: 200px;
+      height: 681px;
+      border: 1px solid red;
+      background-image: url(https://www.html5tricks.com/demo/css3-page-flip/pagebg.jpg);
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+    } */
+</style>
+
+<body>
+  <div id="app">
+    <div class="content_text">
+      <div class="flipbook-viewport">
+        <div class="container">
+          <div class="flipbook" ref="flipbook">
+            <div style="background-image: url(https://www.html5tricks.com/demo/css3-page-flip/page1.jpg);"
+              class="instshow">
+              1111111111111111111111</div>
+            <div style="background-image: url(https://www.html5tricks.com/demo/css3-page-flip/page2.jpg);">
+              22222222222222222</div>
+            <div style="background-image: url(https://www.html5tricks.com/demo/css3-page-flip/page3.jpg);">
+              3333333333333333333333</div>
+            <div style="background-image: url(https://www.html5tricks.com/demo/css3-page-flip/page1.jpg);">
+              44444444444444444444444444</div>
+            <div style="background-image: url(https://www.html5tricks.com/demo/css3-page-flip/page2.jpg);">
+              555555555555555555555</div>
+            <div style="background-image: url(https://www.html5tricks.com/demo/css3-page-flip/page3.jpg);">
+              66666666666666666666</div>
+            <div style="background-image: url(https://www.html5tricks.com/demo/css3-page-flip/page1.jpg);">
+              77777777777777777777777</div>
+            <div style="background-image: url(https://www.html5tricks.com/demo/css3-page-flip/page2.jpg);">
+              8888888888888888888888</div>
+            <div style="background-image: url(https://www.html5tricks.com/demo/css3-page-flip/page3.jpg);">
+              999999999999999999999</div>
+            <div style="background-image: url(https://www.html5tricks.com/demo/css3-page-flip/page1.jpg);">
+              101010100100010100010110</div>
+            <div style="background-image: url(https://www.html5tricks.com/demo/css3-page-flip/page2.jpg);">
+              11111111111111111</div>
+            <div style="background-image: url(https://www.html5tricks.com/demo/css3-page-flip/page3.jpg);">
+              12121212221212121212</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="./js/vue.js"></script>
+  <script>
+    // 自动翻页
+    var way = 1;
+    setInterval(function () {
+      if (way == 1) {
+        $(".flipbook").turn("next");
+        if ($(".flipbook").turn("page") == $(".flipbook").turn("pages")) {
+          way = 2;
+          $(".flipbook").turn("options", {
+            turnCorners: "tl,tr"
+          });
+        }
+      } else {
+        $(".flipbook").turn("previous");
+
+        if ($(".flipbook").turn("page") == 1) {
+          way = 1;
+          $(".flipbook").turn("options", {
+            turnCorners: "bl,br"
+          });
+        }
+      }
+    }, 1000);
+    var app = new Vue({
+      el: '#app',
+      data: {},
+      mounted() {
+        yepnope({
+          test: Modernizr.csstransforms,
+          yep: ['./js/turn.js'],
+          nope: ['./js/turn.html4.min.js'],
+          both: ['./css/basic.css'],
+          complete: this.loadApp
+        });
+      },
+      methods: {
+        loadApp() {
+          $('.flipbook').turn({
+            // width: 922,
+            // height: 600,
+            // Elevation
+            // elevation: 50,
+            // Enable gradients
+            gradients: false,
+            // Auto center this flipbook
+            // autoCenter: true,
+            autoCenter: false,
+            acceleration: false,
+            when: {
+              // start: function (event, page, pageObj) { // 移入后状态
+              //   // console.log('event', event);
+              //   // console.log('page', page);
+              //   // console.log('pageObj', pageObj);
+
+              //   // event.preventDefault(); // 阻止默认事件
+
+              //   // pageObj.preventDefault();
+              //   let timer = null;
+              //   if (event.target) {
+              //     timer = setTimeout(() => {
+              //       // event.preventDefault(); // 阻止默认事件
+              //     }, 3000)
+              //   }
+            }
+          });
+          // $('.flipbook').turn("peel", "tr"); // 在右上角显示角
+        }
+      },
+    })
+  </script>
+
+</body>
+
+</html>

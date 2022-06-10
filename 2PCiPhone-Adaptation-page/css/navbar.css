@@ -1,0 +1,37 @@
+@media  (max-width: 1365px) {
+    .box .nav {
+        max-width: 760px;
+    }
+
+    .box .content {
+        max-width: 760px;
+    }
+}
+
+@media  (max-width: 1023px) {
+    .box .nav {
+        max-width: 560px;
+    }
+
+    .box .content {
+        max-width: 560px;
+    }
+}
+
+@media  (max-width: 767px) {
+    .box .nav {
+        display: none !important;
+    }
+
+    .box .content {
+        max-width: 100%;
+    }
+}
+
+@media  (max-width: 767px) {
+    .nav {
+        max-width: 100%;
+        font-size: 2.5rem !important;
+    }
+}
+

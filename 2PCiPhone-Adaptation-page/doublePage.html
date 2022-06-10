@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>index</title>
+  <link href="https://cdn.bootcdn.net/ajax/libs/minireset.css/0.0.2/minireset.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+  <link rel="stylesheet" href="./css/index.css">
+  <!-- 书籍 -->
+  <script type="text/javascript" src="./js/jquery.min.1.7.js"></script>
+  <script type="text/javascript" src="./js/modernizr.2.5.3.min.js"></script>
+  <style>
+    .bloack {
+      min-width: 100%;
+      min-height: 100%;
+    }
+
+    .white {
+      min-width: 100%;
+      min-height: 100%;
+      background: rgb(246, 247, 249);
+      box-sizing: border-box;
+    }
+
+    /* 到这 */
+    .max .box {
+      /* background-color: rgb(255, 255, 255); */
+      transition: background-color .2s ease-in-out;
+      min-height: 100%;
+      /* max-width: 1000px; */
+    }
+
+    .box {
+      /* position: relative; */
+      max-width: 1120px;
+      margin-right: auto;
+      margin-left: auto;
+      /* background-color: red !important; */
+    }
+
+
+
+    /* 顶栏 */
+    .nav {
+      position: fixed;
+      left: 50%;
+      top: 0;
+      transform: translateX(-50%);
+      align-items: center;
+      justify-content: space-between;
+      display: flex;
+      width: 100%;
+      height: 72px;
+      max-width: 1120px;
+      /* margin-left: auto;
+      margin-right: auto; */
+      z-index: 80;
+      border-bottom: 1px solid rgba(238, 240, 244, .1);
+      /* background-color: #fff; */
+      transition: background-color .2s ease-in-out;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .nav_box {
+      width: 100%;
+      display: -webkit-box;
+      flex-direction: row;
+      display: -ms-flexbox;
+      display: flex;
+    }
+
+    .nav_box_lft {
+      width: 10%;
+      /* border: 1px solid rgb(32, 2, 2); */
+      flex-direction: row;
+      justify-content: center;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+    }
+
+
+    .nav_box_lft img {
+      width: 25px;
+    }
+
+    .nav_box_ctr {
+      width: 80%;
+      /* border: 1px solid red; */
+      display: flex;
+      justify-content: space-between;
+      flex-direction: row;
+      align-items: center;
+    }
+
+    .nav_box_rgt {
+      width: 10%;
+      /* border: 1px solid rgb(216, 11, 155); */
+      text-align: center;
+      flex-direction: row;
+      justify-content: center;
+      display: flex;
+      align-items: center;
+    }
+
+    .nav_box_ctr_rgt {
+      flex-direction: row;
+      justify-content: center;
+      display: flex;
+      align-items: center;
+      margin-right: 5px;
+    }
+
+    .nav_box_ctr_rgt img {
+      width: 25px;
+      /* margin-right: 20px; */
+      cursor: pointer;
+    }
+
+    .nav_box_ctr_lft {
+      flex: auto;
+      margin-left: 36px;
+      margin-right: 32px;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 16px;
+      overflow: hidden;
+      height: 16px;
+      display: -webkit-box;
+      display: -moz-box;
+      text-overflow: ellipsis;
+      -webkit-line-clamp: 1;
+      -moz-line-clamp: 1;
+      line-clamp: 1;
+      -webkit-box-orient: vertical;
+      /* -webkit-text-size-adjust: none; */
+      box-orient: vertical;
+    }
+
+    /* .bdr{
+        max-width: 100%;
+        border-bottom: 1px solid #ccc;
+        position: relative;
+        top: 72px;
+      } */
+    /* 右下角五个图片 */
+
+
+    .box_left_box {
+      width: 48px;
+      overflow: visible;
+      position: absolute;
+      z-index: 5;
+      /* right: -70px; */
+      left: 50%;
+      bottom: 48px;
+      margin-left: 610px;
+    }
+
+    .box_left_box a {
+      position: relative;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: #000;
+      -webkit-box-shadow: 0 5px 4px 0 rgb(0 0 0 / 5%);
+      box-shadow: 0 5px 4px 0 rgb(0 0 0 / 5%);
+      background-color: #fff;
+      text-align: center;
+      padding: 10px;
+      box-sizing: border-box;
+      cursor: pointer;
+      margin-top: 8px;
+    }
+
+    @media (max-width: 1365px) {
+
+      /* 右下角样式变化 */
+      .box_left_box {
+        margin-left: 428px;
+      }
+    }
+
+    @media (max-width: 1023px) {
+
+      /* 右下角样式变化 */
+      .box_left_box {
+        margin-left: 304px;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .box_left_box {
+        display: none !important;
+      }
+    }
+
+
+    .box_left a img {
+      display: block;
+      width: 24px;
+    }
+
+    /* 内容区域 */
+    .content {
+      width: 80%;
+      display: flex;
+      margin: 0 auto;
+      flex-direction: column;
+      /* height: 100%;
+      overflow: auto;
+      margin: 0; */
+    }
+
+    .title {
+      margin-top: 100px;
+      width: 100%;
+      height: 100px;
+      background-color: rgb(299, 219, 85);
+      text-align: center;
+      line-height: 6;
+    }
+
+    .text1 {
+      width: 90%;
+      /* height: 50px; */
+      margin: 0 auto;
+      /* border: 1px solid red; */
+      padding: 5px 0 0 0;
+      margin-top: 30px;
+      font-size: 18px;
+      box-sizing: border-box;
+      /*文本  */
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      /* //设置伸缩盒子的子元素排列方式--从上到下垂直排列 */
+      -webkit-box-orient: vertical;
+      /* 显示的行 */
+      -webkit-line-clamp: 2;
+    }
+
+
+
+    .content_text {
+      width: 100%;
+      height: 681px;
+      /* border: 1px solid red; */
+      background-image: url(https://www.html5tricks.com/demo/css3-page-flip/pagebg.jpg);
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+    }
+
+    /* 弹窗样式 */
+    [v-cloak] {
+      display: none !important;
+    }
+
+    .mask {
+      background-color: #000;
+      opacity: 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1
+    }
+
+    .pop {
+      position: fixed;
+      background-color: #1f2022;
+      width: 520px;
+      display: flex;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      z-index: 90;
+      margin-left: -20px;
+      box-shadow: -20px 0 20px 0 rgb(0 0 0 / 10%);
+      flex-direction: column;
+      color: #fff;
+    }
+
+    .search_nav {
+      width: 100%;
+      flex-direction: row;
+      display: flex;
+    }
+
+    .search {
+      width: 80%;
+      height: 40px;
+      /* border: 1px solid #fff; */
+      margin: 0 auto;
+      flex-direction: row;
+      background: rgb(53, 54, 56);
+      justify-content: space-between;
+      align-items: center;
+      border-radius: 25px;
+      display: flex;
+      margin-top: 30px;
+    }
+
+    .search_lft {
+      /* width: 10%; */
+    }
+
+    .search_lft img {
+      width: 20px;
+    }
+
+    .search_ctr {
+      width: 80%;
+      /* height: 20px; */
+      /* border: 1px solid #fff; */
+    }
+
+    .search_ctr input {
+      width: 100%;
+      outline: none;
+      background: none;
+      border: none;
+      color: #fff;
+    }
+
+    .search_rgt {
+      /* width: 10%; */
+      padding: 1px;
+      /* background-color: #ccc; */
+      border-radius: 50px;
+      border: 1px solid rgb(34, 35, 37);
+      /* box-shadow: 5px 5px #000; */
+      cursor: pointer;
+    }
+
+    .search_rgt img {
+      width: 20px;
+    }
+
+    .cancel {
+      color: #fff;
+      position: relative;
+      right: 25px;
+      top: 40px;
+      cursor: pointer;
+    }
+
+    /* 三体图片 */
+    .santi {
+      width: 85%;
+      height: 100px;
+      border: 1px solid #fff;
+      margin: 50px auto;
+      display: flex;
+      flex-direction: row;
+    }
+
+    .santi_lft img {
+      width: 65px;
+    }
+
+    .santi_rgt {
+      width: 50%;
+      height: 100%;
+      flex-direction: column;
+      display: flex;
+      justify-content: center;
+      margin-left: 10px;
+    }
+
+    .santi_rgt_top {
+      font-size: 25px;
+      color: #fff;
+    }
+
+    .santi_rgt_btn {
+      font-size: 18;
+      color: #fff;
+    }
+
+    /* 升降按钮样式 */
+    .sortBtn {}
+
+    .sortBtn {
+      width: 25px;
+      position: relative;
+      left: 450px;
+    }
+
+    .btn {
+      /* background-color: #fff; */
+      border-radius: 4px;
+      border: 1px solid blue;
+      padding: 4px 12px;
+    }
+
+    /* 列表 */
+    .box_list {
+      display: flex;
+      flex-direction: column;
+      border-bottom: 1px solid #fff;
+      border-top: 1px solid #fff;
+      overflow-y: scroll;
+      white-space: nowrap;
+    }
+
+    .list {
+      height: 52px;
+      line-height: 52px;
+      padding-left: 36px;
+      padding-right: 36px;
+      color: #fff;
+      border-bottom: 1px solid #fff;
+    }
+
+    /* 底部导航栏 */
+    .bottomBar {
+      display: none;
+      /* position: fixed; */
+      z-index: 91;
+      bottom: 0;
+      width: 100%;
+      height: 56px;
+      padding-bottom: env(safe-area-inset-bottom);
+      align-items: center;
+      justify-content: space-between;
+      background-color: #fff;
+      box-shadow: 0 -0.3px 20px rgb(0 0 0 / 8%);
+    }
+
+
+    @media (max-width: 767px) {
+      .active {
+        display: flex;
+        opacity: 1;
+      }
+    }
+
+    /* 这里 */
+    .bottomBar_box {
+      width: 100%;
+      height: 100%;
+    }
+
+    .bottomBar_box_last {
+      width: 80%;
+      height: 100%;
+      margin-left: auto;
+      margin-right: auto;
+      flex-direction: row;
+      justify-content: space-between;
+      display: flex;
+    }
+
+    .bottomBar_a {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      /* align-items: center; */
+    }
+
+    .bottomBar_a_a {
+      height: 80%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .bottomBar_a_a_img {
+      width: 25px;
+    }
+
+    .bottomBar_a_b {
+      display: block;
+      height: 40px;
+      line-height: 40px;
+      font-size: 20px;
+      padding: 0 28px;
+      font-weight: 500;
+      text-align: center;
+      background: linear-gradient(90deg, #0087fc, #28b7ff);
+      border-radius: 25px;
+      color: #fff;
+    }
+
+    .bottomBar_a_b_img img {
+      width: 25px;
+      position: relative;
+      right: 2px;
+      top: 5px;
+    }
+
+    /* @media (-webkit-min-device-pixel-ratio: 1.5),
+    (min-resolution: 120dpi) {
+      .content .title {
+        display: none !important;
+      }
+    } */
+
+
+    /* @media (-webkit-min-device-pixel-ratio: 1.25) {
+      .title {
+        display: none;
+      }
+    } */
+
+
+    .bloack {
+      background-color: black;
+      color: #fff;
+      transition: 0.3s ease;
+    }
+
+    .contentBloack {
+      background-color: rgb(31, 32, 34);
+    }
+
+    .white {
+      color: black;
+      transition: 0.3s ease;
+    }
+
+    .contentWhite {
+      background-color: #fff;
+    }
+
+
+
+    /* 书样式开始 */
+    /* 这里有内边距 */
+    .container {
+      min-height: auto;
+      min-width: auto;
+      box-sizing: border-box !important;
+    }
+
+    .flipbook {
+      -webkit-backface-visibility: hidden !important;
+      backface-visibility: hidden !important;
+      transform: translate3d(0, 0, 0) !important;
+      box-sizing: border-box !important;
+    }
+
+    .page-wrapper {
+      transform: translate3d(0, 0, 0) !important;
+    }
+
+
+    .flipbook {
+      width: 892.778px !important;
+      min-height: auto !important;
+      border: 1px solid transparent !important;
+      box-sizing: border-box;
+    }
+
+    /* 书样式结束 */
+  </style>
+</head>
+
+<body>
+  <div id="app" :class="['max', isShow ? 'bloack' : 'white']" v-cloak>
+    <div :class="['box', isShow ? 'contentBloack' : 'contentWhite']">
+      <!-- 顶栏 -->
+      <div class="nav">
+        <div class="nav_box">
+          <div class="nav_box_lft">
+            <img src="./img/shu.png" alt="">
+          </div>
+          <div class="nav_box_ctr">
+            <div class="nav_box_ctr_lft">不能承受的生命之轻(米兰·昆德拉作品系列·2022版)1</div>
+            <div class="nav_box_ctr_rgt">
+              <img src="./img/shujia.png" alt="">
+              <span style="cursor:pointer;white-space:nowrap;">加入书架</span>
+            </div>
+          </div>
+          <div class="nav_box_rgt">
+            <div style="cursor: pointer;">
+              <span>登陆</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bdr"></div>
+      <!-- 内容区域 -->
+      <div class="content">
+        <div class="title">
+          1
+        </div>
+        <!-- 文本transform: translate(-563px, -200px) rotate(-45deg); -->
+        <div class="content_text">
+          <div class="flipbook-viewport">
+            <div class="container">
+              <div class="flipbook">
+                <div class="img1">
+                  首页
+                </div>
+                <div class="img2">
+                  <div class="text1">
+                    若十四世纪这两个非洲部落之间的战争永恒轮回，无数次地重复，那么战争本身是否会有所改变?
+                  </div>
+                  <div class="text1">
+                    会的，因为它将成为一个突出的硬疣，永远存在，此举之愚蠢将不可饶恕
+                  </div>
+                  <div class="text1">
+                    若法国大革命永远地重演，法国的史书就不会那么以罗伯斯庇尔我为荣了。正因为史书上谈及的是一桩不会重现的往事，血腥的岁月于是化成了文字、理论和研讨变得比一片鸿毛还轻，不再让人惧怕。一个在历史上只出现一次的罗伯斯庇尔和一
+                    若法国大革命永远地重演，法国的史书就不会那么以罗伯斯庇尔我为荣了。正因为史书上谈及的是一桩不会重现的往事，血腥的岁月于是化成了文字、理论和研讨变得比一片鸿毛还轻，不再让人惧怕。一个在历史上只出现一次的罗伯斯庇尔和一
+                  </div>
+                  <div class="text1">
+                    若十四世纪这两个非洲部落之间的战争永恒轮回，无数次地重复，那么战争本身是否会有所改变?
+                  </div>
+                  <div class="text1">
+                    会的，因为它将成为一个突出的硬疣，永远存在，此举之愚蠢将不可饶恕
+                  </div>
+                  <div class="text1">
+                    若十四世纪这两个非洲部落之间的战争永恒轮回，无数次地重复，那么战争本身是否会有所改变?
+                  </div>
+                </div>
+                <div class="img3">
+                  <div class="text1">
+                    若十四世纪这两个非洲部落之间的战争永恒轮回，无数次地重复，那么战争本身是否会有所改变?
+                  </div>
+                  <div class="text1">
+                    会的，因为它将成为一个突出的硬疣，永远存在，此举之愚蠢将不可饶恕
+                  </div>
+                  <div class="text1">
+                    若法国大革命永远地重演，法国的史书就不会那么以罗伯斯庇尔我为荣了。正因为史书上谈及的是一桩不会重现的往事，血腥的岁月于是化成了文字、理论和研讨变得比一片鸿毛还轻，不再让人惧怕。一个在历史上只出现一次的罗伯斯庇尔和一
+                    若法国大革命永远地重演，法国的史书就不会那么以罗伯斯庇尔我为荣了。正因为史书上谈及的是一桩不会重现的往事，血腥的岁月于是化成了文字、理论和研讨变得比一片鸿毛还轻，不再让人惧怕。一个在历史上只出现一次的罗伯斯庇尔和一
+                  </div>
+                  <div class="text1">
+                    若十四世纪这两个非洲部落之间的战争永恒轮回，无数次地重复，那么战争本身是否会有所改变?
+                  </div>
+                  <div class="text1">
+                    会的，因为它将成为一个突出的硬疣，永远存在，此举之愚蠢将不可饶恕
+                  </div>
+                  <div class="text1">
+                    若十四世纪这两个非洲部落之间的战争永恒轮回，无数次地重复，那么战争本身是否会有所改变?
+                  </div>
+                </div>
+                <div class="img4">
+                  <div class="text1">
+                    若十四世纪这两个非洲部落之间的战争永恒轮回，无数次地重复，那么战争本身是否会有所改变?
+                  </div>
+                  <div class="text1">
+                    会的，因为它将成为一个突出的硬疣，永远存在，此举之愚蠢将不可饶恕
+                  </div>
+                  <div class="text1">
+                    若法国大革命永远地重演，法国的史书就不会那么以罗伯斯庇尔我为荣了。正因为史书上谈及的是一桩不会重现的往事，血腥的岁月于是化成了文字、理论和研讨变得比一片鸿毛还轻，不再让人惧怕。一个在历史上只出现一次的罗伯斯庇尔和一
+                    若法国大革命永远地重演，法国的史书就不会那么以罗伯斯庇尔我为荣了。正因为史书上谈及的是一桩不会重现的往事，血腥的岁月于是化成了文字、理论和研讨变得比一片鸿毛还轻，不再让人惧怕。一个在历史上只出现一次的罗伯斯庇尔和一
+                  </div>
+                  <div class="text1">
+                    若十四世纪这两个非洲部落之间的战争永恒轮回，无数次地重复，那么战争本身是否会有所改变?
+                  </div>
+                  <div class="text1">
+                    会的，因为它将成为一个突出的硬疣，永远存在，此举之愚蠢将不可饶恕
+                  </div>
+                  <div class="text1">
+                    若十四世纪这两个非洲部落之间的战争永恒轮回，无数次地重复，那么战争本身是否会有所改变?
+                  </div>
+                </div>
+                <div class="img5">
+                  <div class="text1">
+                    若十四世纪这两个非洲部落之间的战争永恒轮回，无数次地重复，那么战争本身是否会有所改变?
+                  </div>
+                  <div class="text1">
+                    会的，因为它将成为一个突出的硬疣，永远存在，此举之愚蠢将不可饶恕
+                  </div>
+                  <div class="text1">
+                    若法国大革命永远地重演，法国的史书就不会那么以罗伯斯庇尔我为荣了。正因为史书上谈及的是一桩不会重现的往事，血腥的岁月于是化成了文字、理论和研讨变得比一片鸿毛还轻，不再让人惧怕。一个在历史上只出现一次的罗伯斯庇尔和一
+                    若法国大革命永远地重演，法国的史书就不会那么以罗伯斯庇尔我为荣了。正因为史书上谈及的是一桩不会重现的往事，血腥的岁月于是化成了文字、理论和研讨变得比一片鸿毛还轻，不再让人惧怕。一个在历史上只出现一次的罗伯斯庇尔和一
+                  </div>
+                  <div class="text1">
+                    若十四世纪这两个非洲部落之间的战争永恒轮回，无数次地重复，那么战争本身是否会有所改变?
+                  </div>
+                  <div class="text1">
+                    会的，因为它将成为一个突出的硬疣，永远存在，此举之愚蠢将不可饶恕
+                  </div>
+                  <div class="text1">
+                    若十四世纪这两个非洲部落之间的战争永恒轮回，无数次地重复，那么战争本身是否会有所改变?
+                  </div>
+                </div>
+                <div class="img6">
+                  <div class="text1">
+                    若十四世纪这两个非洲部落之间的战争永恒轮回，无数次地重复，那么战争本身是否会有所改变?
+                  </div>
+                  <div class="text1">
+                    会的，因为它将成为一个突出的硬疣，永远存在，此举之愚蠢将不可饶恕
+                  </div>
+                  <div class="text1">
+                    若法国大革命永远地重演，法国的史书就不会那么以罗伯斯庇尔我为荣了。正因为史书上谈及的是一桩不会重现的往事，血腥的岁月于是化成了文字、理论和研讨变得比一片鸿毛还轻，不再让人惧怕。一个在历史上只出现一次的罗伯斯庇尔和一
+                    若法国大革命永远地重演，法国的史书就不会那么以罗伯斯庇尔我为荣了。正因为史书上谈及的是一桩不会重现的往事，血腥的岁月于是化成了文字、理论和研讨变得比一片鸿毛还轻，不再让人惧怕。一个在历史上只出现一次的罗伯斯庇尔和一
+                  </div>
+                  <div class="text1">
+                    若十四世纪这两个非洲部落之间的战争永恒轮回，无数次地重复，那么战争本身是否会有所改变?
+                  </div>
+                  <div class="text1">
+                    会的，因为它将成为一个突出的硬疣，永远存在，此举之愚蠢将不可饶恕
+                  </div>
+                  <div class="text1">
+                    若十四世纪这两个非洲部落之间的战争永恒轮回，无数次地重复，那么战争本身是否会有所改变?
+                  </div>
+                </div>
+                <div class="img7">
+                  <div class="text1">
+                    若十四世纪这两个非洲部落之间的战争永恒轮回，无数次地重复，那么战争本身是否会有所改变?
+                  </div>
+                  <div class="text1">
+                    会的，因为它将成为一个突出的硬疣，永远存在，此举之愚蠢将不可饶恕
+                  </div>
+                  <div class="text1">
+                    若法国大革命永远地重演，法国的史书就不会那么以罗伯斯庇尔我为荣了。正因为史书上谈及的是一桩不会重现的往事，血腥的岁月于是化成了文字、理论和研讨变得比一片鸿毛还轻，不再让人惧怕。一个在历史上只出现一次的罗伯斯庇尔和一
+                    若法国大革命永远地重演，法国的史书就不会那么以罗伯斯庇尔我为荣了。正因为史书上谈及的是一桩不会重现的往事，血腥的岁月于是化成了文字、理论和研讨变得比一片鸿毛还轻，不再让人惧怕。一个在历史上只出现一次的罗伯斯庇尔和一
+                  </div>
+                  <div class="text1">
+                    若十四世纪这两个非洲部落之间的战争永恒轮回，无数次地重复，那么战争本身是否会有所改变?
+                  </div>
+                  <div class="text1">
+                    会的，因为它将成为一个突出的硬疣，永远存在，此举之愚蠢将不可饶恕
+                  </div>
+                  <div class="text1">
+                    若十四世纪这两个非洲部落之间的战争永恒轮回，无数次地重复，那么战争本身是否会有所改变?
+                  </div>
+                </div>
+                <div class="img8">
+                  <div class="text1">
+                    若十四世纪这两个非洲部落之间的战争永恒轮回，无数次地重复，那么战争本身是否会有所改变?
+                  </div>
+                  <div class="text1">
+                    会的，因为它将成为一个突出的硬疣，永远存在，此举之愚蠢将不可饶恕
+                  </div>
+                  <div class="text1">
+                    若法国大革命永远地重演，法国的史书就不会那么以罗伯斯庇尔我为荣了。正因为史书上谈及的是一桩不会重现的往事，血腥的岁月于是化成了文字、理论和研讨变得比一片鸿毛还轻，不再让人惧怕。一个在历史上只出现一次的罗伯斯庇尔和一
+                    若法国大革命永远地重演，法国的史书就不会那么以罗伯斯庇尔我为荣了。正因为史书上谈及的是一桩不会重现的往事，血腥的岁月于是化成了文字、理论和研讨变得比一片鸿毛还轻，不再让人惧怕。一个在历史上只出现一次的罗伯斯庇尔和一
+                  </div>
+                  <div class="text1">
+                    若十四世纪这两个非洲部落之间的战争永恒轮回，无数次地重复，那么战争本身是否会有所改变?
+                  </div>
+                  <div class="text1">
+                    会的，因为它将成为一个突出的硬疣，永远存在，此举之愚蠢将不可饶恕
+                  </div>
+                  <div class="text1">
+                    若十四世纪这两个非洲部落之间的战争永恒轮回，无数次地重复，那么战争本身是否会有所改变?
+                  </div>
+                </div>
+                <div class="img9">
+                  <div class="text1">
+                    若十四世纪这两个非洲部落之间的战争永恒轮回，无数次地重复，那么战争本身是否会有所改变?
+                  </div>
+                  <div class="text1">
+                    会的，因为它将成为一个突出的硬疣，永远存在，此举之愚蠢将不可饶恕
+                  </div>
+                  <div class="text1">
+                    若法国大革命永远地重演，法国的史书就不会那么以罗伯斯庇尔我为荣了。正因为史书上谈及的是一桩不会重现的往事，血腥的岁月于是化成了文字、理论和研讨变得比一片鸿毛还轻，不再让人惧怕。一个在历史上只出现一次的罗伯斯庇尔和一
+                    若法国大革命永远地重演，法国的史书就不会那么以罗伯斯庇尔我为荣了。正因为史书上谈及的是一桩不会重现的往事，血腥的岁月于是化成了文字、理论和研讨变得比一片鸿毛还轻，不再让人惧怕。一个在历史上只出现一次的罗伯斯庇尔和一
+                  </div>
+                  <div class="text1">
+                    若十四世纪这两个非洲部落之间的战争永恒轮回，无数次地重复，那么战争本身是否会有所改变?
+                  </div>
+                  <div class="text1">
+                    会的，因为它将成为一个突出的硬疣，永远存在，此举之愚蠢将不可饶恕
+                  </div>
+                  <div class="text1">
+                    若十四世纪这两个非洲部落之间的战争永恒轮回，无数次地重复，那么战争本身是否会有所改变?
+                  </div>
+                </div>
+                <div class="img10">
+                  <div class="text1">
+                    若十四世纪这两个非洲部落之间的战争永恒轮回，无数次地重复，那么战争本身是否会有所改变?
+                  </div>
+                  <div class="text1">
+                    会的，因为它将成为一个突出的硬疣，永远存在，此举之愚蠢将不可饶恕
+                  </div>
+                  <div class="text1">
+                    若法国大革命永远地重演，法国的史书就不会那么以罗伯斯庇尔我为荣了。正因为史书上谈及的是一桩不会重现的往事，血腥的岁月于是化成了文字、理论和研讨变得比一片鸿毛还轻，不再让人惧怕。一个在历史上只出现一次的罗伯斯庇尔和一
+                    若法国大革命永远地重演，法国的史书就不会那么以罗伯斯庇尔我为荣了。正因为史书上谈及的是一桩不会重现的往事，血腥的岁月于是化成了文字、理论和研讨变得比一片鸿毛还轻，不再让人惧怕。一个在历史上只出现一次的罗伯斯庇尔和一
+                  </div>
+                  <div class="text1">
+                    若十四世纪这两个非洲部落之间的战争永恒轮回，无数次地重复，那么战争本身是否会有所改变?
+                  </div>
+                  <div class="text1">
+                    会的，因为它将成为一个突出的硬疣，永远存在，此举之愚蠢将不可饶恕
+                  </div>
+                  <div class="text1">
+                    若十四世纪这两个非洲部落之间的战争永恒轮回，无数次地重复，那么战争本身是否会有所改变?
+                  </div>
+                </div>
+                <div class="img11">
+                  <div class="text1">
+                    若十四世纪这两个非洲部落之间的战争永恒轮回，无数次地重复，那么战争本身是否会有所改变?
+                  </div>
+                  <div class="text1">
+                    会的，因为它将成为一个突出的硬疣，永远存在，此举之愚蠢将不可饶恕
+                  </div>
+                  <div class="text1">
+                    若法国大革命永远地重演，法国的史书就不会那么以罗伯斯庇尔我为荣了。正因为史书上谈及的是一桩不会重现的往事，血腥的岁月于是化成了文字、理论和研讨变得比一片鸿毛还轻，不再让人惧怕。一个在历史上只出现一次的罗伯斯庇尔和一
+                    若法国大革命永远地重演，法国的史书就不会那么以罗伯斯庇尔我为荣了。正因为史书上谈及的是一桩不会重现的往事，血腥的岁月于是化成了文字、理论和研讨变得比一片鸿毛还轻，不再让人惧怕。一个在历史上只出现一次的罗伯斯庇尔和一
+                  </div>
+                  <div class="text1">
+                    若十四世纪这两个非洲部落之间的战争永恒轮回，无数次地重复，那么战争本身是否会有所改变?
+                  </div>
+                  <div class="text1">
+                    会的，因为它将成为一个突出的硬疣，永远存在，此举之愚蠢将不可饶恕
+                  </div>
+                  <div class="text1">
+                    若十四世纪这两个非洲部落之间的战争永恒轮回，无数次地重复，那么战争本身是否会有所改变?
+                  </div>
+                </div>
+                <div class="img12">
+                  结尾
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 右侧目栏 -->
+      <div class="box_left_box">
+        <a>
+          <img src="./img/heisimulu.png" alt="" @click="showModal=true">
+        </a>
+        <a>
+          <img src="./img/shu.png" alt="">
+        </a>
+        <a>
+          <img src="./img/shu.png" alt="">
+        </a>
+        <a>
+          <!-- <img src="./img/yueliang.png" alt="" @click="check"> -->
+          <img :src="isShow? dark:light" alt="" @click="check">
+        </a>
+        <a>
+          <img src="./img/shu.png" alt="">
+        </a>
+      </div>
+      <!-- 目录弹窗 -->
+      <div class="popup">
+        <div class="mask" v-if="showModal" @click="showModal=false"></div>
+        <div class="pop" v-if="showModal">
+          <!-- 关闭 -->
+          <!-- <button @click="showModal=false" class="btn">点击出现弹框</button> -->
+          <div class="search_nav">
+            <div class="search">
+              <div class="search_lft"><img src="./img/serch.png" alt=""></div>
+              <div class="search_ctr"><input type="text" placeholder="搜索"></div>
+              <div class="search_rgt"><img src="./img/enter.png" alt=""></div>
+            </div>
+            <div class="cancel">取消</div>
+          </div>
+          <!-- 书图片 -->
+          <div class="santi">
+            <div class="santi_lft"><img src="./img/santi.png" alt=""></div>
+            <div class="santi_rgt">
+              <div class="santi_rgt_top">三体(全集)</div>
+              <div class="santi_rgt_btn">刘慈欣</div>
+            </div>
+          </div>
+          <!-- 列表 -->
+          <div @click="isTopBottom =! isTopBottom" class="sortBtn">
+            <!-- 回到底部 -->
+            <img :src='pwdFlag?textIcon:pwdIcon' @click="changePwd" style="width:16px;">
+          </div>
+
+          <div class="box_list" ref="reference">
+            <div class="list" v-for="(item, index) in goodList">
+              {{item.name}}
+              <div class="list_child"></div>
+            </div>
+          </div>
+        </div>
+        <!-- <button @click="showModal=true" class="btn">点击出现目录</button> -->
+      </div>
+    </div>
+    <!-- 底栏 -->
+    <div class="bottomBar active">
+      <div class="bottomBar_box">
+        <div class="bottomBar_box_last">
+          <div class="bottomBar_a">
+            <div class="bottomBar_a_a">
+              <div class="bottomBar_a_a_img"><img src="./img/home.png" alt=""></div>
+              <div>书城</div>
+            </div>
+          </div>
+          <div class="bottomBar_a">
+            <div class="bottomBar_a_a">
+              <div class="bottomBar_a_a_img"><img src="./img/heisimulu.png" alt=""></div>
+              <div>目录</div>
+            </div>
+          </div>
+          <div class="bottomBar_a">
+            <div class="bottomBar_a_a">
+              <div class="bottomBar_a_a_img"><img src="./img/shezhi.png" alt=""></div>
+              <div>设置</div>
+            </div>
+          </div>
+          <div class="bottomBar_a">
+            <div class="bottomBar_a_b">
+              <span class="bottomBar_a_b_img"><img src="./img/shujia.png" alt=""></span>
+              <span>加入书架</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<script src="./js/vue.js"></script>
+<script>
+  var app = new Vue({
+    el: '#app',
+    data: {
+      flag: true,
+      dark: './img/yueliang.png',
+      light: './img/taiyanghei.png',
+      isShow: localStorage.getItem("theme") === "true" ? true : false,
+      // 上面日夜模式
+      isTopBottom: false,
+      showModal: false,
+      //升降图片
+      pwdFlag: true,
+      textIcon: './img/jiangbai.png',
+      pwdIcon: './img/shengbai.png',
+      goodList: [{
+          name: '测试商品1',
+          gdPrice: 600
+        },
+        {
+          name: '测试商品2',
+          gdPrice: 700
+        },
+        {
+          name: '测试商品3',
+          gdPrice: 800
+        },
+        {
+          name: '测试商品4',
+          gdPrice: 600
+        },
+        {
+          name: '测试商品1',
+          gdPrice: 600
+        },
+        {
+          name: '测试商品2',
+          gdPrice: 700
+        },
+        {
+          name: '测试商品3',
+          gdPrice: 800
+        },
+        {
+          name: '测试商品4',
+          gdPrice: 600
+        },
+        {
+          name: '测试商品1',
+          gdPrice: 600
+        },
+        {
+          name: '测试商品2',
+          gdPrice: 700
+        },
+        {
+          name: '测试商品3',
+          gdPrice: 800
+        },
+        {
+          name: '测试商品4',
+          gdPrice: 600
+        },
+        {
+          name: '测试商品1',
+          gdPrice: 600
+        },
+        {
+          name: '测试商品2',
+          gdPrice: 700
+        },
+        {
+          name: '测试商品3',
+          gdPrice: 800
+        },
+        {
+          name: '测试商品4',
+          gdPrice: 600
+        },
+        {
+          name: '测试商品5',
+          childrenName: [{
+              name: '测试商品1',
+              gdPrice: 600
+            },
+            {
+              name: '测试商品2',
+              gdPrice: 700
+            },
+            {
+              name: '测试商品3',
+              gdPrice: 800
+            },
+            {
+              name: '测试商品4',
+              gdPrice: 600
+            },
+          ]
+        },
+      ]
+    },
+    watch: {
+      isTopBottom(val) {
+        if (val) {
+          this.$refs['reference'].scrollTop = this.$refs['reference'].scrollHeight
+        } else {
+          this.$refs['reference'].scrollTop = 0
+        }
+      },
+    },
+    mounted() {
+      yepnope({
+        test: Modernizr.csstransforms,
+        yep: ['./js/turn.js'],
+        nope: ['./js/turn.html4.min.js'],
+        both: ['./css/basic.css'], // 书籍样式
+        complete: this.loadApp
+      });
+    },
+    methods: {
+      loadApp() {
+        $('.flipbook').turn({
+          // width: 922,
+          // height: 600,
+          // Elevation
+          elevation: 50,
+          // Enable gradients
+          gradients: false,
+          // Auto center this flipbook
+          autoCenter: true,
+          acceleration: false,
+          when: {
+            // start: function (event, page, pageObj) { // 移入后状态
+            //   // console.log('event', event);
+            //   // console.log('page', page);
+            //   // console.log('pageObj', pageObj);
+
+            //   // event.preventDefault(); // 阻止默认事件
+
+            //   // pageObj.preventDefault();
+            //   let timer = null;
+            //   if (event.target) {
+            //     timer = setTimeout(() => {
+            //       // event.preventDefault(); // 阻止默认事件
+            //     }, 3000)
+            //   }
+            // }
+          }
+        });
+        // $(".flipbook").bind("start", function (event, pageobject, corner) {
+        //   if (corner == "tl" || corner == "tr") {
+        //     event.preventDefault();
+        //   }
+        //   console.log(corner, 'cornerr');
+        // })
+        // 节流
+        let flag = true;
+        $(".flipbook").bind("start", function (event, pageobject, corner) {
+          if (flag) {
+            flag = false;
+            setTimeout(() => {
+              flag = true;
+              // console.log('5s后触发');
+              if (corner == "tl" || corner == "tr") {
+                event.preventDefault();
+              }
+            }, 5000)
+          }
+        })
+        // 防抖
+        // let timer = null
+        // $('.flipbook').bind('start', function (event, pageobject, corner) {
+        //   clearTimeout(timer);
+        //   timer = setTimeout(() => {
+        //     if (corner == "tl" || corner == "tr") {
+        //       event.preventDefault();
+        //     }
+        //     console.log('5s后执行');
+        //   }, 5000)
+        // })
+
+        $(".flipbook").turn("peel", "tr"); // 在右上角显示角
+      },
+      check() {
+        if (this.isShow) {
+          this.isShow = false;
+          localStorage.setItem("theme", false);
+        } else {
+          this.isShow = true;
+          localStorage.setItem("theme", true);
+        }
+      },
+      changePwd() {
+        this.pwdFlag = !this.pwdFlag
+      },
+    },
+  })
+</script>
+
+</html>
